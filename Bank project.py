@@ -63,7 +63,7 @@ def createAccount():
                 money = open(path1+"/Data/user_money/money_{}.txt".format(createUser),"w")
                 money.write("0")
                 money.close()
-                openHistory = open(path1+"/Data/History/history{}.txt".format(createUser),"w")
+                openHistory = open(path1+"/Data/History/history_{}.txt".format(createUser),"w")
                 openHistory.close()
                 createAccountWindow.close()
                 passwordData.close()
