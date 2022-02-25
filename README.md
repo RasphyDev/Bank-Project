@@ -29,5 +29,7 @@ You can edit the data in /Data
 If you forget the password you can go to /Data/Passwords/USERNAME_password.txt and open it with a text editor to change or read it (only.py)
 
 # Screenshots
+##### Version 4.0
+![preview](https://user-images.githubusercontent.com/89478484/149630845-3b6bde3c-e8ae-4048-8806-462a063bd97f.png)
 ##### Version 3.0 and 3.1
 ![asdasd](https://user-images.githubusercontent.com/89478484/147885287-1855aba5-2c28-4ec7-9333-c1bf97d7952c.png)
