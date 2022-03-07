@@ -9,7 +9,7 @@
     \|_______|\|__|\|__|\|__| \|__|\|__| \|__|        \|__|     \|__|\|__|\|_______|\|________|\|_______|\|_______|   \|__|
                                                                                                                            
 By Rasphy: https://github.com/Rasphy2009/Bank-Project
-V 4.1  
+V 4.2
 
 """ 
 
@@ -330,6 +330,16 @@ def checkBox3Checker():
         mainWindow.lineEditActualPassword.setEchoMode(QtWidgets.QLineEdit.Password)
         mainWindow.lineEditNewPassword.setEchoMode(QtWidgets.QLineEdit.Password)
         mainWindow.lineEditRepeatPassword.setEchoMode(QtWidgets.QLineEdit.Password)
+
+
+# Checks if checkBox is clicked in dark mode settings
+def checkBox4Checker():
+    checkBoxValue = mainWindow.checkBox_DarkMode.checkState()
+    
+    if str(checkBoxValue) == "PySide6.QtCore.Qt.CheckState.Checked":
+        darkMode()
+    else:
+        lightMode()
 
 
 # Your account window (mainWindow)
@@ -767,6 +777,198 @@ def changeUsername():
         
         fadeUnfadeAnimation(mainWindow.ensureChangeUsername)
 
+
+def darkMode():
+    # Change settings
+    openDarkMode = open(path1+"/Data/darkMode.txt","w")
+    openDarkMode.write("1")
+    openDarkMode.close()
+    # Log in window
+    logInWindow.frame.setStyleSheet("QFrame{\nbackground-color: rgb(36, 36, 36);\n}")
+    logInWindow.logo.setPixmap(QPixmap(path1+"/UIs/Imgs/logo.png"))
+    logInWindow.logo.setMaximumSize(5000000, 150)
+    logInWindow.logo.setGeometry(20, 30, 361, 150)
+    styleSheetData = open(path1+"/UIs/styleSheets/styleSheet_CheckBox.txt", "r")
+    styleSheet = styleSheetData.read()
+    styleSheetData.close()
+    logInWindow.checkBox_password.setStyleSheet(styleSheet)
+    logInWindow.checkBox_Password2.setStyleSheet(styleSheet)
+    mainWindow.checkBox_Password.setStyleSheet(styleSheet)# <---- Main window
+    mainWindow.checkBox_DarkMode.setStyleSheet(styleSheet)# <---- Main window
+    # Main window
+    # History
+    styleSheetData = open(path1+"/UIs/styleSheets/styleSheet_History.txt", "r")
+    styleSheet = styleSheetData.read()
+    styleSheetData.close()
+    mainWindow.textEdit.setStyleSheet(styleSheet)
+    # Lateral buttons
+    styleSheetData = open(path1+"/UIs/styleSheets/styleSheet_LateralButtons.txt", "r")
+    styleSheet = styleSheetData.read()
+    styleSheetData.close()
+    mainWindow.btnMinMax.setStyleSheet(styleSheet)
+    mainWindow.btnYourAccount.setStyleSheet(styleSheet)
+    mainWindow.btnLogOut.setStyleSheet(styleSheet)
+    mainWindow.btnSettings.setStyleSheet(styleSheet)
+    # Info frames
+    styleSheetData = open(path1+"/UIs/styleSheets/styleSheet_Frames.txt", "r")
+    styleSheet = styleSheetData.read()
+    styleSheetData.close()
+    mainWindow.frameMoney.setStyleSheet(styleSheet)
+    mainWindow.frameMoney_2.setStyleSheet(styleSheet)
+    mainWindow.frameMoney_3.setStyleSheet(styleSheet)
+    mainWindow.frameMoney_4.setStyleSheet(styleSheet)
+    mainWindow.frameMoney_5.setStyleSheet(styleSheet)
+    mainWindow.frameChoose.setStyleSheet(styleSheet)
+    mainWindow.frameChoose_2.setStyleSheet(styleSheet)
+    mainWindow.frameChoose_5.setStyleSheet(styleSheet)
+    mainWindow.frameAccount.setStyleSheet(styleSheet)
+    styleSheetData = open(path1+"/UIs/styleSheets/styleSheet_MoneyLabels.txt", "r")
+    styleSheet = styleSheetData.read()
+    styleSheetData.close()
+    mainWindow.labelYourMoney.setStyleSheet(styleSheet)
+    mainWindow.labelYourMoney_2.setStyleSheet(styleSheet)
+    mainWindow.labelYourMoney_3.setStyleSheet(styleSheet)
+    mainWindow.labelYourMoney_4.setStyleSheet(styleSheet)
+    mainWindow.labelYourMoney_5.setStyleSheet(styleSheet)
+    mainWindow.labelChoose.setStyleSheet(styleSheet)
+    mainWindow.labelChoose_2.setStyleSheet(styleSheet)
+    mainWindow.labelChoose_5.setStyleSheet(styleSheet)
+    mainWindow.labelChoose_6.setStyleSheet(styleSheet)
+    # Side and top frames
+    mainWindow.topBar.setStyleSheet("QFrame{\nbackground-color: rgb(65, 65, 65);\n}")
+    mainWindow.sideBar.setStyleSheet("QFrame{\nbackground-color: rgb(65, 65, 65);\n}")
+    # Content
+    mainWindow.content.setStyleSheet("QFrame{\nbackground-color: rgb(36, 36, 36);\n}")
+    # Settings
+    mainWindow.scrollAreaWidgetContents_2.setStyleSheet("background-color: rgb(36, 36, 36);\nborder: none;")
+    # Labels
+    mainWindow.labelYourAccount.setStyleSheet("QLabel{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.label_3.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.label_4.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.label_8.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.label_10.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.label_12.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.label_13.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.label_19.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.label_17.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.label_16.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.label_18.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.label_15.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.label_25.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.label_23.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.labelWelcome.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.labelUsername.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.labelVersion.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.labelCorrect.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.filling.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.title.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.text.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.label_20.setStyleSheet("QFrame{\ncolor: rgb(255, 255, 255);\n}")
+    mainWindow.labelMoney.setStyleSheet("QLabel{\ncolor: rgb(255, 255, 255);\nborder: none;\npadding: 1px;\n}")
+    mainWindow.labelMoney_2.setStyleSheet("QLabel{\ncolor: rgb(255, 255, 255);\nborder: none;\npadding: 1px;\n}")
+    mainWindow.labelMoney_3.setStyleSheet("QLabel{\ncolor: rgb(255, 255, 255);\nborder: none;\npadding: 1px;\n}")
+    mainWindow.labelMoney_4.setStyleSheet("QLabel{\ncolor: rgb(255, 255, 255);\nborder: none;\npadding: 1px;\n}")
+    mainWindow.labelMoney_5.setStyleSheet("QLabel{\ncolor: rgb(255, 255, 255);\nborder: none;\npadding: 1px;\n}")
+    mainWindow.label_31.setStyleSheet("QLabel{\ncolor: rgb(255, 255, 255);\nborder: none;\npadding: 1px;\n}")
+    mainWindow.label_7.setStyleSheet("QLabel{\ncolor: rgb(255, 255, 255);\nborder: none;\npadding: 1px;\n}")
+    mainWindow.label_6.setStyleSheet("QLabel{\ncolor: rgb(255, 255, 255);\nborder: none;\npadding: 1px;\n}")
+
+
+def lightMode():
+    # Change settings
+    openDarkMode = open(path1+"/Data/darkMode.txt","w")
+    openDarkMode.write("0")
+    openDarkMode.close()
+    # Log in window
+    logInWindow.frame.setStyleSheet("QFrame{\nbackground-color: rgb(255, 255, 255);\n}")
+    logInWindow.logo.setPixmap(QPixmap(path1+"/UIs/Imgs/logo4.png"))
+    logInWindow.logo.setMaximumSize(5000000, 5000000)
+    logInWindow.logo.setGeometry(20, 30, 361, 191)
+    styleSheetData = open(path1+"/UIs/styleSheets/styleSheet_CheckBox_Light.txt", "r")
+    styleSheet = styleSheetData.read()
+    styleSheetData.close()
+    logInWindow.checkBox_password.setStyleSheet(styleSheet)
+    logInWindow.checkBox_Password2.setStyleSheet(styleSheet)
+    mainWindow.checkBox_Password.setStyleSheet(styleSheet)# <---- Main window
+    mainWindow.checkBox_DarkMode.setStyleSheet(styleSheet)# <---- Main window
+    # Main window
+    # History
+    styleSheetData = open(path1+"/UIs/styleSheets/styleSheet_History_Light.txt", "r")
+    styleSheet = styleSheetData.read()
+    styleSheetData.close()
+    mainWindow.textEdit.setStyleSheet(styleSheet)
+    # Lateral buttons
+    styleSheetData = open(path1+"/UIs/styleSheets/styleSheet_LateralButtons_Light.txt", "r")
+    styleSheet = styleSheetData.read()
+    styleSheetData.close()
+    mainWindow.btnMinMax.setStyleSheet(styleSheet)
+    mainWindow.btnYourAccount.setStyleSheet(styleSheet)
+    mainWindow.btnLogOut.setStyleSheet(styleSheet)
+    mainWindow.btnSettings.setStyleSheet(styleSheet)
+    # Info frames
+    styleSheetData = open(path1+"/UIs/styleSheets/styleSheet_Frames_Light.txt", "r")
+    styleSheet = styleSheetData.read()
+    styleSheetData.close()
+    mainWindow.frameMoney.setStyleSheet(styleSheet)
+    mainWindow.frameMoney_2.setStyleSheet(styleSheet)
+    mainWindow.frameMoney_3.setStyleSheet(styleSheet)
+    mainWindow.frameMoney_4.setStyleSheet(styleSheet)
+    mainWindow.frameMoney_5.setStyleSheet(styleSheet)
+    mainWindow.frameChoose.setStyleSheet(styleSheet)
+    mainWindow.frameChoose_2.setStyleSheet(styleSheet)
+    mainWindow.frameChoose_5.setStyleSheet(styleSheet)
+    mainWindow.frameAccount.setStyleSheet(styleSheet)
+    styleSheetData = open(path1+"/UIs/styleSheets/styleSheet_MoneyLabels_Light.txt", "r")
+    styleSheet = styleSheetData.read()
+    styleSheetData.close()
+    mainWindow.labelYourMoney.setStyleSheet(styleSheet)
+    mainWindow.labelYourMoney_2.setStyleSheet(styleSheet)
+    mainWindow.labelYourMoney_3.setStyleSheet(styleSheet)
+    mainWindow.labelYourMoney_4.setStyleSheet(styleSheet)
+    mainWindow.labelYourMoney_5.setStyleSheet(styleSheet)
+    mainWindow.labelChoose.setStyleSheet(styleSheet)
+    mainWindow.labelChoose_2.setStyleSheet(styleSheet)
+    mainWindow.labelChoose_5.setStyleSheet(styleSheet)
+    mainWindow.labelChoose_6.setStyleSheet(styleSheet)
+    # Side and top frames
+    mainWindow.topBar.setStyleSheet("QFrame{\nbackground-color: rgb(239, 239, 239);\n}")
+    mainWindow.sideBar.setStyleSheet("QFrame{\nbackground-color: rgb(239, 239, 239);\n}")
+    # Content
+    mainWindow.content.setStyleSheet("QFrame{\nbackground-color: rgb(255, 255, 255);\n}")
+    # Settings
+    mainWindow.scrollAreaWidgetContents_2.setStyleSheet("background-color: rgb(255, 255, 255);\nborder: none;")
+    # Labels
+    mainWindow.labelYourAccount.setStyleSheet("QLabel{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.label_3.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.label_4.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.label_8.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.label_10.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.label_12.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.label_13.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.label_19.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.label_17.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.label_16.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.label_18.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.label_15.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.label_25.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.label_23.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.labelWelcome.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.labelUsername.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.labelVersion.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.labelCorrect.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.filling.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.title.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.text.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.label_20.setStyleSheet("QFrame{\ncolor: rgb(0, 0, 0);\n}")
+    mainWindow.labelMoney.setStyleSheet("QLabel{\ncolor: rgb(0, 0, 0);\nborder: none;\npadding: 1px;\n}")
+    mainWindow.labelMoney_2.setStyleSheet("QLabel{\ncolor: rgb(0, 0, 0);\nborder: none;\npadding: 1px;\n}")
+    mainWindow.labelMoney_3.setStyleSheet("QLabel{\ncolor: rgb(0, 0, 0);\nborder: none;\npadding: 1px;\n}")
+    mainWindow.labelMoney_4.setStyleSheet("QLabel{\ncolor: rgb(0, 0, 0);\nborder: none;\npadding: 1px;\n}")
+    mainWindow.labelMoney_5.setStyleSheet("QLabel{\ncolor: rgb(0, 0, 0);\nborder: none;\npadding: 1px;\n}")
+    mainWindow.label_31.setStyleSheet("QLabel{\ncolor: rgb(0, 0, 0);\nborder: none;\npadding: 1px;\n}")
+    mainWindow.label_7.setStyleSheet("QLabel{\ncolor: rgb(0, 0, 0);\nborder: none;\npadding: 1px;\n}")
+    mainWindow.label_6.setStyleSheet("QLabel{\ncolor: rgb(0, 0, 0);\nborder: none;\npadding: 1px;\n}")
+
     
 # Define windows and other settings
 splashScreenWindow = loader.load(path1+"/UIs/splashScreen.ui", None)
@@ -909,8 +1111,20 @@ mainWindow.pushButton1000_2.clicked.connect(lambda: moneyChecker(1000))
 mainWindow.pushButton10000_2.clicked.connect(lambda: moneyChecker(10000))
 mainWindow.pushButtonTakeOut_2.clicked.connect(lambda: moneyCheckerCustom())
 mainWindow.lineEdit_3.textChanged.connect(lambda: clearErrors())
+# Dark mode checkBox
+mainWindow.checkBox_DarkMode.clicked.connect(lambda: checkBox4Checker())
 
 # Execute app
 splashScreen()
+
+# Check dark mode
+openDarkMode = open(path1+"/Data/darkMode.txt","r")
+darkModeState = openDarkMode.read()
+openDarkMode.close()
+if darkModeState == "1":
+    darkMode()
+    mainWindow.checkBox_DarkMode.click()
+else:
+   pass
 
 app.exec()
